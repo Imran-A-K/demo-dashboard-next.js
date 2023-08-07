@@ -21,7 +21,7 @@ function Tabs({
     }
   };
   return (
-    <article className="py-4">
+    <article className="py-4 max-sm:hidden">
       <div className="flex gap-4 justify-center">
         {tabs.map((tab) => (
           <Button

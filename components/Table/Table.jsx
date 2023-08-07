@@ -7,7 +7,7 @@ function Table({ tableData, doctors }) {
   //   console.log(tableHeadings);
 
   return (
-    <article className="">
+    <article className="max-sm:hidden">
       <div className="flex flex-wrap">
         <div className="w-full ">
           <div className="max-w-full overflow-x-auto">

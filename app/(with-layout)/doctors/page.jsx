@@ -86,7 +86,7 @@ function Doctors() {
   const [filteredData, setFilteredData] = useState([...doctors]);
 
   return (
-    <section className="px-10">
+    <section className="sm:px-10">
       <TitleSectionWithButton />
       <Tabs
         activeTab={activeTab}
