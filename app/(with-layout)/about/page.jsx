@@ -1,7 +1,5 @@
-import React from "react";
-
 function page() {
-  return <section>About</section>;
+  return <section className="">About</section>;
 }
 
 export default page;

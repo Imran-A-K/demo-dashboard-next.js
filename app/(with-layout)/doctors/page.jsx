@@ -87,7 +87,6 @@ function Doctors() {
 
   return (
     <section className="sm:px-10">
-      <TitleSectionWithButton />
       <Tabs
         activeTab={activeTab}
         setActiveTab={setActiveTab}
