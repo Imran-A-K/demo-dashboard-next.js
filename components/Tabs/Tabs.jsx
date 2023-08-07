@@ -1,4 +1,7 @@
 "use client";
+
+import Button from "../Button/Button";
+
 function Tabs({
   activeTab,
   setActiveTab,
@@ -32,6 +35,18 @@ function Tabs({
           >
             {tab}
           </button>
+        ))}
+      </div>
+      <div className="flex gap-4 justify-center">
+        {tabs.map((tab) => (
+          <Button
+            key={tab}
+            tab={tab}
+            activeTab={activeTab}
+            onClickFunction={() => changeTab(tab)}
+          >
+            {tab}
+          </Button>
         ))}
       </div>
     </article>
