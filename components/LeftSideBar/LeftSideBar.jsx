@@ -18,7 +18,7 @@ function LeftSideBar() {
     </>
   );
   return (
-    <section className="w-full md:w-52 bg-teal-100/40 fixed top-0 bottom-0 p-3">
+    <section className="w-full md:w-52 bg-blue-100/40 fixed top-0 bottom-0 p-3">
       <div className="py-5 pl-5 font-bold text-xl">DashBoard</div>
       <nav>
         <ul className="flex flex-col gap-4 pl-5 w-full text-lg">
