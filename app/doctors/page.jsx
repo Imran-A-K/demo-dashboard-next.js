@@ -3,7 +3,6 @@ import Card from "@/components/Card/Card";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import Table from "@/components/Table/Table";
 import Tabs from "@/components/Tabs/Tabs";
-import TitleSectionWithButton from "@/components/TitleSectionWithButton/TitleSectionWithButton";
 import { useEffect, useState } from "react";
 
 function Doctors() {
