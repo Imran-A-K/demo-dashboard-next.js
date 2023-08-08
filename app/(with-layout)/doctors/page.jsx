@@ -1,4 +1,6 @@
 "use client";
+import Card from "@/components/Card/Card";
+import SelectBar from "@/components/SelectBar/SelectBar";
 import Table from "@/components/Table/Table";
 import Tabs from "@/components/Tabs/Tabs";
 import TitleSectionWithButton from "@/components/TitleSectionWithButton/TitleSectionWithButton";
@@ -84,18 +86,28 @@ function Doctors() {
 
   const [activeTab, setActiveTab] = useState(doctorTypes[0]);
   const [filteredData, setFilteredData] = useState([...doctors]);
+  const changeTab = (type) => {
+    setActiveTab(type);
 
+    if (type === "All") {
+      setFilteredData(doctors);
+    } else {
+      const filtered = doctors.filter((doctor) => doctor.type === type);
+      setFilteredData(filtered);
+    }
+  };
   return (
     <section className="sm:px-10">
-      <Tabs
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        tabs={doctorTypes}
-        filteredData={filteredData}
-        setFilteredData={setFilteredData}
-        doctors={doctors}
-      />
+      <Tabs activeTab={activeTab} tabs={doctorTypes} changeTab={changeTab} />
       <Table tableData={filteredData} doctors={doctors} />
+      <SelectBar
+        activeTab={activeTab}
+        tabs={doctorTypes}
+        changeTab={changeTab}
+      />
+      {filteredData.map((data, index) => (
+        <Card key={index} data={data} />
+      ))}
     </section>
   );
 }

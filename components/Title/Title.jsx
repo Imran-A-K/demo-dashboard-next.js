@@ -7,7 +7,7 @@ function Title({ sideNavIsOpen, setSideNavIsOpen }) {
   return (
     <div className="flex py-6 items-center justify-center relative">
       <button
-        className="flex flex-col justify-center items-center absolute right-6"
+        className="flex flex-col justify-center items-center absolute right-6 lg:hidden"
         onClick={() => setSideNavIsOpen(!sideNavIsOpen)}
       >
         <span
@@ -26,7 +26,7 @@ function Title({ sideNavIsOpen, setSideNavIsOpen }) {
           }`}
         ></span>
       </button>
-      <h1 className="capitalize font-bold text-xl">
+      <h1 className="capitalize font-bold text-2xl max-sm:text-xl">
         {pathName === "/" ? "Home" : pathName.replace("/", "")}
       </h1>
     </div>

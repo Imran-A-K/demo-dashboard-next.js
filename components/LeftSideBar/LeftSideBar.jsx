@@ -41,8 +41,8 @@ function LeftSideBar({ sideNavIsOpen, setSideNavIsOpen }) {
               <li
                 key={index}
                 onClick={() => setSideNavIsOpen(false)}
-                className={`hover:bg-slate-300/40 w-full py-1 px-2 rounded-md ${
-                  pathName === route.href && "bg-slate-300/40"
+                className={`hover:bg-sky-500/40 w-full py-1 px-2 rounded-md ${
+                  pathName === route.href && "bg-blue-500 text-white"
                 }`}
               >
                 <Link href={route.href}>{route.name}</Link>

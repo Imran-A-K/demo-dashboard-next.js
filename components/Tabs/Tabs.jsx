@@ -4,22 +4,11 @@ import Button from "../Button/Button";
 
 function Tabs({
   activeTab,
-  setActiveTab,
-  tabs,
-  filteredData,
-  setFilteredData,
-  doctors,
-}) {
-  const changeTab = (type) => {
-    setActiveTab(type);
 
-    if (type === "All") {
-      setFilteredData(doctors);
-    } else {
-      const filtered = doctors.filter((doctor) => doctor.type === type);
-      setFilteredData(filtered);
-    }
-  };
+  tabs,
+
+  changeTab,
+}) {
   return (
     <article className="py-4 max-sm:hidden">
       <div className="flex gap-4 justify-center">

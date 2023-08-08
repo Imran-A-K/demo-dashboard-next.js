@@ -4,7 +4,6 @@ function Table({ tableData, doctors }) {
   const tableHeadings = Object.keys(doctors[0])?.filter(
     (keepFields) => keepFields !== "id"
   );
-  //   console.log(tableHeadings);
 
   return (
     <article className="max-sm:hidden">
