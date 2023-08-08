@@ -4,10 +4,9 @@ import { useEffect } from "react";
 
 function Dashboard() {
   const router = useRouter();
-  // useEffect((
-
-  // ))
-  return <div>sdkjbd</div>;
+  router.push("/doctors");
+  // useEffect(router.push("/doctors"), []);
+  return null;
 }
 
 export default Dashboard;

@@ -9,15 +9,7 @@ function LeftSideBar({ sideNavIsOpen, setSideNavIsOpen }) {
     { name: "Appointments", href: "/appointments" },
     { name: "Settings", href: "/settings" },
   ];
-  const navLinks = (
-    <>
-      {routes.map((route, index) => (
-        <li key={index} className="hover:bg-slate-100 bg-gray-500 w-full py-10">
-          <Link href={route.href}>{route.name}</Link>
-        </li>
-      ))}
-    </>
-  );
+
   return (
     <>
       {sideNavIsOpen && (
