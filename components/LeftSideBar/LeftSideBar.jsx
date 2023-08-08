@@ -30,15 +30,28 @@ function LeftSideBar({ sideNavIsOpen, setSideNavIsOpen }) {
         <nav>
           <ul className="flex flex-col gap-4 pl-5 w-full text-lg">
             {routes.map((route, index) => (
-              <li
-                key={index}
-                onClick={() => setSideNavIsOpen(false)}
-                className={`hover:bg-sky-500/40 w-full py-1 px-2 rounded-md ${
-                  pathName === route.href && "bg-blue-500 text-white"
-                }`}
-              >
-                <Link href={route.href}>{route.name}</Link>
-              </li>
+              // <li
+              //   key={index}
+              //   onClick={() => setSideNavIsOpen(false)}
+              //   className={`hover:bg-sky-500/40 w-full py-1 px-2 rounded-md ${
+              //     pathName === route.href && "bg-blue-500 text-white"
+              //   }`}
+              // >
+              //   <Link href={route.href}>{route.name}</Link>
+              // </li>
+
+              <Link key={index} href={route.href}>
+                <li
+                  onClick={() => setSideNavIsOpen(false)}
+                  className={` w-full py-1 px-2 rounded-md ${
+                    pathName === route.href
+                      ? "bg-blue-500 text-white hover:bg-blue-500"
+                      : "hover:bg-sky-500/40"
+                  }`}
+                >
+                  {route.name}
+                </li>
+              </Link>
             ))}
           </ul>
         </nav>

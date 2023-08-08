@@ -3,7 +3,7 @@ import Card from "@/components/Card/Card";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import Table from "@/components/Table/Table";
 import Tabs from "@/components/Tabs/Tabs";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Doctors() {
   const doctors = [
@@ -98,7 +98,7 @@ function Doctors() {
   return (
     <section className="sm:px-10">
       <Tabs activeTab={activeTab} tabs={doctorTypes} changeTab={changeTab} />
-      <Table tableData={filteredData} doctors={doctors} />
+      <Table tableData={filteredData} mainData={doctors} />
       <SelectBar
         activeTab={activeTab}
         tabs={doctorTypes}

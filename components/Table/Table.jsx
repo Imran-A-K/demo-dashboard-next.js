@@ -1,7 +1,7 @@
 "use client";
 
-function Table({ tableData, doctors }) {
-  const tableHeadings = Object.keys(doctors[0])?.filter(
+function Table({ tableData, mainData }) {
+  const tableHeadings = Object.keys(mainData[0])?.filter(
     (keepFields) => keepFields !== "id"
   );
 
