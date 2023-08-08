@@ -6,7 +6,7 @@ function Dashboard() {
   const router = useRouter();
   // router.push("/doctors");
   // useEffect(router.push("/doctors"), []);
-  return <div>home</div>;
+  return <div>Welcome</div>;
 }
 
 export default Dashboard;
