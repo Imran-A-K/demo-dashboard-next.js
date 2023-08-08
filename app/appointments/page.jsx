@@ -1,4 +1,5 @@
-import Card from "@/components/Card/Card";
+import AppointmentCard from "@/components/Card/AppointmentCard";
+import DoctorCard from "@/components/Card/DoctorCard";
 import Table from "@/components/Table/Table";
 import React from "react";
 
@@ -41,7 +42,16 @@ function page() {
     },
   ];
 
-  return <section className="sm:px-10">Appointments</section>;
+  return (
+    <section className="sm:px-10">
+      <Table tableData={patientDetails} mainData={patientDetails} />
+      <div className="sm:hidden">
+        {patientDetails.map((data, index) => (
+          <AppointmentCard key={index} data={data} />
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default page;

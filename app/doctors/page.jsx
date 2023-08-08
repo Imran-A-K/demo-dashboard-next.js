@@ -1,5 +1,5 @@
 "use client";
-import Card from "@/components/Card/Card";
+import DoctorCard from "@/components/Card/DoctorCard";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import Table from "@/components/Table/Table";
 import Tabs from "@/components/Tabs/Tabs";
@@ -106,7 +106,7 @@ function Doctors() {
       />
       <div className="sm:hidden">
         {filteredData.map((data, index) => (
-          <Card key={index} data={data} />
+          <DoctorCard key={index} data={data} />
         ))}
       </div>
     </section>

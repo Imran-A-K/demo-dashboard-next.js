@@ -27,7 +27,7 @@ function Table({ tableData, mainData }) {
               <tbody>
                 {tableData.map((data) => (
                   <tr key={data.id} className="text-left">
-                    <td className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-5 text-base font-medium text-dark">
+                    {/* <td className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-5 text-base font-medium text-dark">
                       {data.name}
                     </td>
                     <td className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-5  text-base font-medium text-dark">
@@ -37,8 +37,18 @@ function Table({ tableData, mainData }) {
                       {data.experience}
                     </td>
                     <td className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-5  text-base font-medium text-dark">
-                      {data.location}
-                    </td>
+                      {data.location} */}
+                    {Object.keys(data).map(
+                      (key, index) =>
+                        key !== "id" && (
+                          <td
+                            key={index}
+                            className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-5 text-base font-medium text-dark"
+                          >
+                            {data[key]}
+                          </td>
+                        )
+                    )}
                   </tr>
                 ))}
               </tbody>

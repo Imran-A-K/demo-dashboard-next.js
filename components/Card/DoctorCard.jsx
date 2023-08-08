@@ -1,4 +1,4 @@
-function Card({ data }) {
+function DoctorCard({ data }) {
   const { name, type, experience, location } = data;
   return (
     <div class="mx-auto p-9 bg-white max-w-xs my-3 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
@@ -21,4 +21,4 @@ function Card({ data }) {
   );
 }
 
-export default Card;
+export default DoctorCard;
