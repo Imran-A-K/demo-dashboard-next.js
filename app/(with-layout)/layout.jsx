@@ -6,7 +6,7 @@ import { useState } from "react";
 function Layout({ children }) {
   const [sideNavIsOpen, setSideNavIsOpen] = useState(false);
   return (
-    <main className="flex max-sm:flex-col h-screen">
+    <main className="flex max-[850px]:flex-col h-screen">
       <aside className="flex-none w-full md:w-52 relative">
         <LeftSideBar
           sideNavIsOpen={sideNavIsOpen}

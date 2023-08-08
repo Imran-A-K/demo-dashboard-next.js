@@ -1,7 +1,13 @@
+"use client";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-function page() {
-  return <section className="">DashBoard Home</section>;
+function Dashboard() {
+  const router = useRouter();
+  // useEffect((
+
+  // ))
+  return <div>sdkjbd</div>;
 }
 
-export default page;
+export default Dashboard;

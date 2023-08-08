@@ -105,9 +105,11 @@ function Doctors() {
         tabs={doctorTypes}
         changeTab={changeTab}
       />
-      {filteredData.map((data, index) => (
-        <Card key={index} data={data} />
-      ))}
+      <div className="sm:hidden">
+        {filteredData.map((data, index) => (
+          <Card key={index} data={data} />
+        ))}
+      </div>
     </section>
   );
 }
