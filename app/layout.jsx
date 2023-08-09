@@ -1,18 +1,13 @@
-"use client";
-import LeftSideBar from "@/components/LeftSideBar/LeftSideBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Title from "@/components/Title/Title";
-import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
-  const [sideNavIsOpen, setSideNavIsOpen] = useState(false);
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex max-[850px]:flex-col h-screen">
+        {/* <main className="flex max-[850px]:flex-col h-screen">
           <aside className="flex-none w-full md:w-52 relative">
             <LeftSideBar
               sideNavIsOpen={sideNavIsOpen}
@@ -28,7 +23,8 @@ export default function RootLayout({ children }) {
             </div>
             {children}
           </section>
-        </main>
+        </main> */}
+        {children}
       </body>
     </html>
   );

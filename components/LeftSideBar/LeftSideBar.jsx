@@ -5,9 +5,9 @@ import { CloseIcon } from "../Icons/CloseIcon";
 function LeftSideBar({ sideNavIsOpen, setSideNavIsOpen }) {
   const pathName = usePathname();
   const routes = [
-    { name: "Doctors", href: "/doctors" },
-    { name: "Appointments", href: "/appointments" },
-    { name: "Settings", href: "/settings" },
+    { name: "Doctors", href: "/dashboard/doctors" },
+    { name: "Appointments", href: "/dashboard/appointments" },
+    { name: "Settings", href: "/dashboard/settings" },
   ];
 
   return (
