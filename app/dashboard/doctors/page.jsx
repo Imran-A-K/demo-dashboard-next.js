@@ -81,11 +81,7 @@ function Doctors() {
     "All",
     ...doctors.slice(0, 3).map((doctor) => doctor.type),
   ];
-
-  useEffect(() => {
-    const storedTab = localStorage.getItem("activeTab");
-    !!storedTab && changeTab(storedTab);
-  }, []);
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState(doctorTypes[0]);
   const [filteredData, setFilteredData] = useState([...doctors]);
   const changeTab = (type) => {
@@ -98,19 +94,31 @@ function Doctors() {
       setFilteredData(filtered);
     }
   };
-
+  useEffect(() => {
+    const storedTab = localStorage.getItem("activeTab");
+    !!storedTab && changeTab(storedTab);
+    setLoading(false);
+  }, []);
   return (
     <section className="sm:px-10">
-      <Tabs activeTab={activeTab} tabs={doctorTypes} changeTab={changeTab} />
-      <div className="max-sm:hidden">
-        <Table tableData={filteredData} mainData={doctors} />
-      </div>
+      {loading ? null : (
+        <div className="">
+          <Tabs
+            activeTab={activeTab}
+            tabs={doctorTypes}
+            changeTab={changeTab}
+          />
+          <div className="max-sm:hidden">
+            <Table tableData={filteredData} mainData={doctors} />
+          </div>
 
-      <div className="sm:hidden">
-        {filteredData.map((data, index) => (
-          <DoctorCard key={index} data={data} />
-        ))}
-      </div>
+          <div className="sm:hidden">
+            {filteredData.map((data, index) => (
+              <DoctorCard key={index} data={data} />
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
