@@ -98,12 +98,10 @@ function Doctors() {
   return (
     <section className="sm:px-10">
       <Tabs activeTab={activeTab} tabs={doctorTypes} changeTab={changeTab} />
-      <Table tableData={filteredData} mainData={doctors} />
-      <SelectBar
-        activeTab={activeTab}
-        tabs={doctorTypes}
-        changeTab={changeTab}
-      />
+      <div className="max-sm:hidden">
+        <Table tableData={filteredData} mainData={doctors} />
+      </div>
+
       <div className="sm:hidden">
         {filteredData.map((data, index) => (
           <DoctorCard key={index} data={data} />
