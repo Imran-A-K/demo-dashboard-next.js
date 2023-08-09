@@ -13,7 +13,7 @@ function Layout({ children }) {
           setSideNavIsOpen={setSideNavIsOpen}
         />
       </aside>
-      <section className="shrink w-full max-sm:h-screen bg-sky-100/20 p-10">
+      <section className="shrink w-full min-h-screen bg-sky-100/20 p-10">
         <div className="sm:px-10">
           <Title
             sideNavIsOpen={sideNavIsOpen}

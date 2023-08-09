@@ -3,8 +3,9 @@ import DoctorCard from "@/components/Card/DoctorCard";
 import Table from "@/components/Table/Table";
 import Tabs from "@/components/Tabs/Tabs";
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-function Doctors() {
+function Doctors({ searchParams }) {
   const doctors = [
     {
       id: 1,
@@ -81,44 +82,41 @@ function Doctors() {
     "All",
     ...doctors.slice(0, 3).map((doctor) => doctor.type),
   ];
-  const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState(doctorTypes[0]);
-  const [filteredData, setFilteredData] = useState([...doctors]);
-  const changeTab = (type) => {
-    setActiveTab(type);
-    localStorage.setItem("activeTab", type);
-    if (type === "All") {
+  const initialFilteredData = (activeTab) =>
+    activeTab === "All"
+      ? [...doctors]
+      : doctors.filter((doctor) => doctor.type === activeTab);
+  const router = useRouter();
+  const pathName = usePathname();
+  const [activeTab, setActiveTab] = useState(
+    !!searchParams?.tab ? searchParams?.tab : doctorTypes[0]
+  );
+  const [filteredData, setFilteredData] = useState(
+    !!searchParams?.tab ? initialFilteredData(searchParams?.tab) : [...doctors]
+  );
+  const changeTab = (tab) => {
+    setActiveTab(tab);
+    if (tab === "All") {
       setFilteredData(doctors);
     } else {
-      const filtered = doctors.filter((doctor) => doctor.type === type);
+      const filtered = doctors.filter((doctor) => doctor.type === tab);
       setFilteredData(filtered);
     }
+    router.replace(`${pathName}?tab=${tab}`);
   };
-  useEffect(() => {
-    const storedTab = localStorage.getItem("activeTab");
-    !!storedTab && changeTab(storedTab);
-    setLoading(false);
-  }, []);
+
   return (
     <section className="sm:px-10">
-      {loading ? null : (
-        <div className="">
-          <Tabs
-            activeTab={activeTab}
-            tabs={doctorTypes}
-            changeTab={changeTab}
-          />
-          <div className="max-sm:hidden">
-            <Table tableData={filteredData} mainData={doctors} />
-          </div>
+      <Tabs activeTab={activeTab} tabs={doctorTypes} changeTab={changeTab} />
+      <div className="max-sm:hidden">
+        <Table tableData={filteredData} mainData={doctors} />
+      </div>
 
-          <div className="sm:hidden">
-            {filteredData.map((data, index) => (
-              <DoctorCard key={index} data={data} />
-            ))}
-          </div>
-        </div>
-      )}
+      <div className="sm:hidden">
+        {filteredData.map((data, index) => (
+          <DoctorCard key={index} data={data} />
+        ))}
+      </div>
     </section>
   );
 }
