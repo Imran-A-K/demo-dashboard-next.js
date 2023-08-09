@@ -28,7 +28,7 @@ function Title({ sideNavIsOpen, setSideNavIsOpen }) {
         ></span>
       </button>
       <h1 className="capitalize font-bold text-2xl max-sm:text-xl">
-        {pathName === "/" ? "" : pathName.replace("/", "")}
+        {pathName === "/" ? "" : pathName.replace("/dashboard/", "")}
       </h1>
     </div>
   );
