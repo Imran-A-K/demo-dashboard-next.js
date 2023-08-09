@@ -1,9 +1,8 @@
 "use client";
 import DoctorCard from "@/components/Card/DoctorCard";
-import SelectBar from "@/components/SelectBar/SelectBar";
 import Table from "@/components/Table/Table";
 import Tabs from "@/components/Tabs/Tabs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Doctors() {
   const doctors = [
@@ -83,11 +82,28 @@ function Doctors() {
     ...doctors.slice(0, 3).map((doctor) => doctor.type),
   ];
 
-  const [activeTab, setActiveTab] = useState(doctorTypes[0]);
-  const [filteredData, setFilteredData] = useState([...doctors]);
+  const storedActiveTab = localStorage.getItem("activeTab");
+  const initialFilteredData = (storedActiveTab, allData) => {
+    if (storedActiveTab === "All") {
+      return allData;
+    } else {
+      const filtered = allData.filter((data) => data.type === storedActiveTab);
+      return filtered;
+    }
+  };
+  // useEffect(() => {
+  //   const storedTab = localStorage.getItem("activeTab");
+  //   !!storedTab && changeTab(storedTab);
+  // }, []);
+  const [activeTab, setActiveTab] = useState(storedActiveTab ?? doctorTypes[0]);
+  const [filteredData, setFilteredData] = useState(
+    !!storedActiveTab
+      ? initialFilteredData(storedActiveTab, [...doctors])
+      : [...doctors]
+  );
   const changeTab = (type) => {
     setActiveTab(type);
-
+    localStorage.setItem("activeTab", type);
     if (type === "All") {
       setFilteredData(doctors);
     } else {
@@ -95,6 +111,7 @@ function Doctors() {
       setFilteredData(filtered);
     }
   };
+
   return (
     <section className="sm:px-10">
       <Tabs activeTab={activeTab} tabs={doctorTypes} changeTab={changeTab} />
