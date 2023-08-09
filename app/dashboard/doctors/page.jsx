@@ -82,25 +82,12 @@ function Doctors() {
     ...doctors.slice(0, 3).map((doctor) => doctor.type),
   ];
 
-  const storedActiveTab = localStorage.getItem("activeTab");
-  const initialFilteredData = (storedActiveTab, allData) => {
-    if (storedActiveTab === "All") {
-      return allData;
-    } else {
-      const filtered = allData.filter((data) => data.type === storedActiveTab);
-      return filtered;
-    }
-  };
-  // useEffect(() => {
-  //   const storedTab = localStorage.getItem("activeTab");
-  //   !!storedTab && changeTab(storedTab);
-  // }, []);
-  const [activeTab, setActiveTab] = useState(storedActiveTab ?? doctorTypes[0]);
-  const [filteredData, setFilteredData] = useState(
-    !!storedActiveTab
-      ? initialFilteredData(storedActiveTab, [...doctors])
-      : [...doctors]
-  );
+  useEffect(() => {
+    const storedTab = localStorage.getItem("activeTab");
+    !!storedTab && changeTab(storedTab);
+  }, []);
+  const [activeTab, setActiveTab] = useState(doctorTypes[0]);
+  const [filteredData, setFilteredData] = useState([...doctors]);
   const changeTab = (type) => {
     setActiveTab(type);
     localStorage.setItem("activeTab", type);
