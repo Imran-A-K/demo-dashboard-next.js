@@ -8,6 +8,7 @@ function LeftSideBar({ sideNavIsOpen, setSideNavIsOpen }) {
     { name: "Doctors", href: "/dashboard/doctors" },
     { name: "Appointments", href: "/dashboard/appointments" },
     { name: "Settings", href: "/dashboard/settings" },
+    { name: "CheckView", href: "/dashboard/checkView" },
   ];
 
   return (

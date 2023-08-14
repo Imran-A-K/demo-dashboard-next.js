@@ -3,7 +3,7 @@ import DoctorCard from "@/components/Card/DoctorCard";
 import Table from "@/components/Table/Table";
 import Tabs from "@/components/Tabs/Tabs";
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 function Doctors({ searchParams }) {
   const doctors = [
@@ -88,6 +88,7 @@ function Doctors({ searchParams }) {
       : doctors.filter((doctor) => doctor.type === activeTab);
   const router = useRouter();
   const pathName = usePathname();
+
   const [activeTab, setActiveTab] = useState(
     !!searchParams?.tab ? searchParams?.tab : doctorTypes[0]
   );
