@@ -7,7 +7,7 @@ function TableView({ data }) {
       <div className="flex flex-col justify-center h-full">
         <div className="w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
           <header className="px-5 py-4 border-b border-gray-100">
-            <h2 className="font-semibold text-gray-800">Compnay List</h2>
+            {/* <h2 className="font-semibold text-gray-800">Compnay List</h2> */}
           </header>
           <div className="p-3">
             <div className="overflow-x-auto">

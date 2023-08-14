@@ -14,8 +14,7 @@ function Settings() {
     localStorage.setItem("viewPreference", event.target.value);
   };
   return (
-    <div className="flex flex-col justify-center">
-      {JSON.stringify(selectedView !== "Table View")}
+    <div className="flex justify-center">
       <div className="main flex border rounded-full overflow-hidden m-4">
         <div className="title py-3 my-auto px-5 bg-blue-500 text-white text-sm font-semibold mr-3">
           Choose View
